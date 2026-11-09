@@ -1,0 +1,87 @@
+# Copyright (C) 2026 ITSS - Gerhard Peilstöcker
+#
+# Module
+ModuleZugferdName = ZUGFeRD / XRechnung
+ModuleZugferdDesc = Kundenrechnungen als XRechnung-XML und ZUGFeRD-PDF exportieren
+ModuleZugferdDescLong = Erzeugt aus validierten Kundenrechnungen XRechnung 3 (CII) und ZUGFeRD 2 / Factur-X (Profil EN 16931).
+#
+# Setup
+ZugferdSetup = Einstellungen ZUGFeRD / XRechnung
+ZugferdSetupPage = Die Pflichtangaben kommen aus Firma/Organisation, Bankkonto und Kunde. Am Kunden gibt es die Extrafelder Leitweg-ID und Elektronische Empfängeradresse.
+ZugferdCheckTitle = Prüfung der Stammdaten
+ZugferdCheckLibrary = PHP-Bibliotheken (vendor)
+ZugferdTaxNumber = Steuernummer
+ZugferdStrictMode = Strenger Modus
+ZugferdStrictModeHelp = Verlangt auch für ZUGFeRD die vollständigen Kontaktdaten (Telefon, E-Mail, Kundenanschrift) wie bei XRechnung.
+ZugferdRequireLeitweg = Leitweg-ID am Kunden verlangen
+ZugferdRequireLeitwegHelp = Wenn aktiv, wird ohne Leitweg-ID (BT-10) keine Datei erzeugt. Sonst wird die Kundennummer als Käuferreferenz verwendet.
+ZugferdDeliveryDateIsInvoiceDate = Leistungsdatum = Rechnungsdatum
+ZugferdDeliveryDateIsInvoiceDateHelp = Wenn an den Positionen kein Leistungszeitraum erfasst ist, wird das Rechnungsdatum als Liefer-/Leistungsdatum (BT-72) übertragen.
+ZugferdDefaultZeroCategory = Steuerkategorie für 0-%-Positionen im Inland
+ZugferdDefaultZeroCategoryHelp = Gilt nur für Kunden im eigenen Land, wenn im MwSt-Wörterbuch kein Code (E, AE, Z, K, G, O) hinterlegt ist. EU-Ausland und Drittland werden automatisch erkannt.
+ZugferdZeroCategoryNone = keine (Export mit Hinweis abbrechen)
+ZugferdZeroCategoryE = E – steuerbefreit
+ZugferdZeroCategoryAE = AE – Steuerschuldnerschaft des Leistungsempfängers (§ 13b UStG)
+ZugferdZeroCategoryZ = Z – Nullsatz
+ZugferdExemptReason = Befreiungsgrund für Kategorie E
+ZugferdExemptReasonHelp = Text für BT-120, z. B. „Steuerfrei gemäß § 4 Nr. 14 UStG“.
+ZugferdSmallBusinessText = Hinweistext Kleinunternehmer
+ZugferdSmallBusinessTextHelp = Wird verwendet, wenn die Firma nicht umsatzsteuerpflichtig ist (Firma/Organisation). Leer = Standardtext.
+ZugferdSellerContact = Ansprechpartner (Verkäufer)
+ZugferdSellerContactHelp = BT-41. Leer = Geschäftsführer aus Firma/Organisation, sonst Firmenname.
+ZugferdSellerTaxNumberField = Feld mit der Steuernummer
+ZugferdSellerTaxNumberFieldHelp = Firmenfeld, aus dem die Steuernummer (BT-32) gelesen wird. Wird nur übernommen, wenn es wie eine Steuernummer aussieht.
+#
+# Invoice card
+ZugferdGenerateXml = XRechnung erzeugen
+ZugferdGenerateXmlHelp = Erzeugt die XRechnung 3 (XML) und legt sie bei den Dokumenten der Rechnung ab
+ZugferdGeneratePdf = ZUGFeRD erzeugen
+ZugferdGeneratePdfHelp = Erzeugt ein PDF/A-3 mit eingebetteter Rechnung (ZUGFeRD EN 16931) und legt es bei den Dokumenten ab
+ZugferdXmlGenerated = XRechnung %s wurde bei der Rechnung gespeichert.
+ZugferdPdfGenerated = ZUGFeRD-PDF %s wurde bei der Rechnung gespeichert.
+ZugferdLeitwegId = Leitweg-ID
+ZugferdLeitwegIdHelp = BT-10, Pflicht für XRechnung an öffentliche Auftraggeber (z. B. 991-12345-67)
+ZugferdEndpointId = Elektronische Empfängeradresse
+ZugferdEndpointIdHelp = BT-49, z. B. E-Mail-Adresse für E-Rechnungen. Leer = E-Mail des Kunden.
+#
+# Exemption reasons (BT-120)
+ZugferdReasonSmallBusiness = Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.
+ZugferdReasonExempt = Steuerbefreite Leistung
+ZugferdReasonReverseCharge = Steuerschuldnerschaft des Leistungsempfängers
+ZugferdReasonIntraCommunity = Steuerfreie innergemeinschaftliche Lieferung
+ZugferdReasonExport = Steuerfreie Ausfuhrlieferung
+ZugferdReasonNotSubject = Nicht im Inland steuerbare Leistung
+#
+# Errors
+ZugferdErrorTitle = E-Rechnung wurde nicht erzeugt:
+ZugferdErrorNotValidated = Die Rechnung muss validiert sein.
+ZugferdErrorNoPermission = Keine Berechtigung zum Erstellen von Rechnungsdokumenten.
+ZugferdErrorBadToken = Sicherheitstoken ungültig. Bitte die Seite neu laden und erneut versuchen.
+ZugferdErrorMissingVendor = PHP-Bibliotheken fehlen (Ordner vendor). Bitte das vollständige Modulpaket installieren.
+ZugferdErrorNoPdf = Rechnungs-PDF fehlt und konnte nicht erzeugt werden.
+ZugferdErrorBuildFailed = E-Rechnung konnte nicht erzeugt werden (Details im Dolibarr-Log).
+ZugferdErrorSaveFailed = Die Datei konnte nicht gespeichert werden.
+ZugferdErrorMissingRef = Rechnungsnummer fehlt.
+ZugferdErrorMissingSellerName = Firmenname fehlt (Firma/Organisation).
+ZugferdErrorMissingSellerAddress = Anschrift der Firma ist unvollständig (Straße, PLZ, Ort, Land).
+ZugferdErrorMissingSellerTax = USt-IdNr. oder Steuernummer der Firma fehlt.
+ZugferdErrorMissingSellerVatForIC = Für steuerfreie innergemeinschaftliche Lieferungen ist die USt-IdNr. der Firma Pflicht.
+ZugferdErrorMissingSellerLegalId = Für nicht steuerbare Leistungen (Kategorie O) wird die Handelsregisternummer oder Steuernummer der Firma benötigt.
+ZugferdErrorMissingSellerEmail = E-Mail der Firma fehlt (Firma/Organisation, BT-34/BT-43).
+ZugferdErrorMissingSellerPhone = Telefonnummer der Firma fehlt (Firma/Organisation, BT-42).
+ZugferdErrorMissingBuyerName = Kundenname fehlt.
+ZugferdErrorMissingBuyerCountry = Land des Kunden fehlt.
+ZugferdErrorMissingBuyerAddress = Anschrift des Kunden ist unvollständig (Straße, PLZ, Ort).
+ZugferdErrorMissingBuyerEmail = Elektronische Adresse des Kunden fehlt (E-Mail am Kunden oder Extrafeld, BT-49).
+ZugferdErrorMissingBuyerVat = USt-IdNr. des Kunden fehlt (Pflicht bei Reverse Charge und innergemeinschaftlicher Lieferung).
+ZugferdErrorMissingLeitweg = Leitweg-ID am Kunden fehlt.
+ZugferdErrorInvalidLeitweg = Leitweg-ID „%s“ hat kein gültiges Format.
+ZugferdErrorMissingIban = IBAN fehlt (Bankkonto der Rechnung oder Standardkonto unter Einstellungen → Rechnungen).
+ZugferdErrorMissingPaymentTerms = Zahlungsbedingung oder Fälligkeitsdatum fehlt.
+ZugferdErrorNoLines = Die Rechnung hat keine exportierbaren Positionen.
+ZugferdErrorForeignCurrency = Rechnungen in Fremdwährung (%s) werden nicht unterstützt.
+ZugferdErrorZeroVatCategory = Steuerkategorie für die 0-%-Position „%s“ unklar. Im MwSt-Wörterbuch einen Code (E, AE, Z) hinterlegen oder im Modul-Setup eine Standardkategorie wählen.
+ZugferdErrorCategoryNeedsZeroRate = Kategorie %s verlangt 0 % MwSt (Position „%s“).
+ZugferdErrorMixedNotSubjectToVat = Nicht steuerbare Positionen (O) dürfen nicht mit anderen Steuerkategorien gemischt werden.
+ZugferdErrorVatRounding = MwSt bei %s %% weicht ab: Rechnung %s, rechnerisch %s. Bitte Rundungseinstellung prüfen (MAIN_ROUNDOFTOTAL_NOT_TOTALOFROUND).
+ZugferdErrorTotalsMismatch = Rechnungssumme %s stimmt nicht mit der Summe der Positionen %s überein.

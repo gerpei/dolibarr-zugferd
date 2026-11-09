@@ -1,0 +1,20 @@
+{
+	"name": "custom/zugferd",
+	"description": "Dolibarr module to export customer invoices as XRechnung XML and ZUGFeRD PDF",
+	"license": "GPL-3.0-or-later",
+	"require": {
+		"php": ">=7.4",
+		"horstoeko/zugferd": "^1.0",
+		"setasign/fpdf": "^1.8.6",
+		"symfony/finder": "^5.4",
+		"symfony/process": "^5.4",
+		"symfony/validator": "^5.4",
+		"symfony/yaml": "^5.4"
+	},
+	"config": {
+		"sort-packages": true,
+		"platform": {
+			"php": "7.4.33"
+		}
+	}
+}

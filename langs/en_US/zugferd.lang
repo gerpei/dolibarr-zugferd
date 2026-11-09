@@ -1,0 +1,87 @@
+# Copyright (C) 2026 ITSS - Gerhard Peilstöcker
+#
+# Module
+ModuleZugferdName = ZUGFeRD / XRechnung
+ModuleZugferdDesc = Export customer invoices as XRechnung XML and ZUGFeRD PDF
+ModuleZugferdDescLong = Creates XRechnung 3 (CII) and ZUGFeRD 2 / Factur-X (profile EN 16931) from validated customer invoices.
+#
+# Setup
+ZugferdSetup = ZUGFeRD / XRechnung setup
+ZugferdSetupPage = Mandatory data comes from Company/Organization, bank account and customer. Customers get the extra fields Leitweg-ID and electronic address.
+ZugferdCheckTitle = Master data check
+ZugferdCheckLibrary = PHP libraries (vendor)
+ZugferdTaxNumber = Tax number
+ZugferdStrictMode = Strict mode
+ZugferdStrictModeHelp = Requires full contact data (phone, e-mail, customer address) also for ZUGFeRD, as for XRechnung.
+ZugferdRequireLeitweg = Require Leitweg-ID on the customer
+ZugferdRequireLeitwegHelp = If enabled, no file is created without Leitweg-ID (BT-10). Otherwise the customer code is used as buyer reference.
+ZugferdDeliveryDateIsInvoiceDate = Delivery date = invoice date
+ZugferdDeliveryDateIsInvoiceDateHelp = If no service period is set on the lines, the invoice date is sent as actual delivery date (BT-72).
+ZugferdDefaultZeroCategory = VAT category for domestic 0% lines
+ZugferdDefaultZeroCategoryHelp = Only for customers in your own country when the VAT dictionary has no code (E, AE, Z, K, G, O). EU and non-EU customers are detected automatically.
+ZugferdZeroCategoryNone = none (stop export with a message)
+ZugferdZeroCategoryE = E - exempt from VAT
+ZugferdZeroCategoryAE = AE - reverse charge
+ZugferdZeroCategoryZ = Z - zero rated
+ZugferdExemptReason = Exemption reason for category E
+ZugferdExemptReasonHelp = Text for BT-120.
+ZugferdSmallBusinessText = Small business note
+ZugferdSmallBusinessTextHelp = Used when the company is not subject to VAT (Company/Organization). Empty = default text.
+ZugferdSellerContact = Seller contact
+ZugferdSellerContactHelp = BT-41. Empty = managers of Company/Organization, otherwise company name.
+ZugferdSellerTaxNumberField = Field holding the tax number
+ZugferdSellerTaxNumberFieldHelp = Company field used for the tax number (BT-32). Only used if it looks like a tax number.
+#
+# Invoice card
+ZugferdGenerateXml = Create XRechnung
+ZugferdGenerateXmlHelp = Creates the XRechnung 3 (XML) and stores it with the invoice documents
+ZugferdGeneratePdf = Create ZUGFeRD
+ZugferdGeneratePdfHelp = Creates a PDF/A-3 with embedded invoice (ZUGFeRD EN 16931) and stores it with the documents
+ZugferdXmlGenerated = XRechnung %s was saved with the invoice.
+ZugferdPdfGenerated = ZUGFeRD PDF %s was saved with the invoice.
+ZugferdLeitwegId = Leitweg-ID
+ZugferdLeitwegIdHelp = BT-10, mandatory for XRechnung to German public authorities (e.g. 991-12345-67)
+ZugferdEndpointId = Electronic address
+ZugferdEndpointIdHelp = BT-49, e.g. e-mail address for e-invoices. Empty = customer e-mail.
+#
+# Exemption reasons (BT-120)
+ZugferdReasonSmallBusiness = No VAT charged according to section 19 UStG (small business).
+ZugferdReasonExempt = VAT exempt supply
+ZugferdReasonReverseCharge = Reverse charge
+ZugferdReasonIntraCommunity = Exempt intra-community supply
+ZugferdReasonExport = Exempt export supply
+ZugferdReasonNotSubject = Not subject to VAT in the country of the seller
+#
+# Errors
+ZugferdErrorTitle = E-invoice was not created:
+ZugferdErrorNotValidated = The invoice must be validated.
+ZugferdErrorNoPermission = Not allowed to create invoice documents.
+ZugferdErrorBadToken = Invalid security token. Please reload the page and try again.
+ZugferdErrorMissingVendor = PHP libraries are missing (vendor folder). Please install the complete module package.
+ZugferdErrorNoPdf = Invoice PDF is missing and could not be created.
+ZugferdErrorBuildFailed = E-invoice could not be created (details in the Dolibarr log).
+ZugferdErrorSaveFailed = The file could not be saved.
+ZugferdErrorMissingRef = Invoice number is missing.
+ZugferdErrorMissingSellerName = Company name is missing (Company/Organization).
+ZugferdErrorMissingSellerAddress = Company address is incomplete (street, zip, town, country).
+ZugferdErrorMissingSellerTax = Company VAT number or tax number is missing.
+ZugferdErrorMissingSellerVatForIC = The company VAT number is mandatory for exempt intra-community supplies.
+ZugferdErrorMissingSellerLegalId = Not subject to VAT (category O) requires the company registration number or tax number.
+ZugferdErrorMissingSellerEmail = Company e-mail is missing (Company/Organization, BT-34/BT-43).
+ZugferdErrorMissingSellerPhone = Company phone is missing (Company/Organization, BT-42).
+ZugferdErrorMissingBuyerName = Customer name is missing.
+ZugferdErrorMissingBuyerCountry = Customer country is missing.
+ZugferdErrorMissingBuyerAddress = Customer address is incomplete (street, zip, town).
+ZugferdErrorMissingBuyerEmail = Customer electronic address is missing (customer e-mail or extra field, BT-49).
+ZugferdErrorMissingBuyerVat = Customer VAT number is missing (mandatory for reverse charge and intra-community supply).
+ZugferdErrorMissingLeitweg = Leitweg-ID is missing on the customer.
+ZugferdErrorInvalidLeitweg = Leitweg-ID "%s" has an invalid format.
+ZugferdErrorMissingIban = IBAN is missing (bank account of the invoice or default account in Setup - Invoices).
+ZugferdErrorMissingPaymentTerms = Payment terms or due date are missing.
+ZugferdErrorNoLines = The invoice has no exportable lines.
+ZugferdErrorForeignCurrency = Invoices in foreign currency (%s) are not supported.
+ZugferdErrorZeroVatCategory = VAT category of the 0% line "%s" is unclear. Set a code (E, AE, Z) in the VAT dictionary or choose a default category in the module setup.
+ZugferdErrorCategoryNeedsZeroRate = Category %s requires 0% VAT (line "%s").
+ZugferdErrorMixedNotSubjectToVat = Lines not subject to VAT (O) must not be mixed with other VAT categories.
+ZugferdErrorVatRounding = VAT at %s %% differs: invoice %s, calculated %s. Please check the rounding setting (MAIN_ROUNDOFTOTAL_NOT_TOTALOFROUND).
+ZugferdErrorTotalsMismatch = Invoice total %s does not match the sum of the lines %s.
