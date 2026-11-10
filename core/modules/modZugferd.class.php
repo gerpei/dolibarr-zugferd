@@ -43,16 +43,16 @@ class modZugferd extends DolibarrModules
 		$this->db = $db;
 
 		// Module id. External modules must use an id registered on https://wiki.dolibarr.org/index.php/List_of_modules_id
-		$this->numero = 500150;
+		$this->numero = 231240; // reserved range 231240-231249 (DoliCare)
 		$this->rights_class = 'zugferd';
 		$this->family = "financial";
 		$this->module_position = '90';
 		$this->name = preg_replace('/^mod/i', '', get_class($this));
 		$this->description = "ModuleZugferdDesc";
 		$this->descriptionlong = "ModuleZugferdDescLong";
-		$this->editor_name = 'ITSS - Gerhard Peilstöcker';
-		$this->editor_url = '';
-		$this->version = '1.2.0';
+		$this->editor_name = 'DoliCare - Gerhard Peilstöcker';
+		$this->editor_url = 'https://dolicare.de';
+		$this->version = '1.2.1';
 		$this->url_last_version = '';
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
 		$this->picto = 'bill';

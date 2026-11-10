@@ -1,5 +1,13 @@
 # ChangeLog
 
+## 1.2.1 (2026-11-10)
+
+- Module ID changed to 231240 (range 231240-231249 reserved for DoliCare on the Dolibarr wiki), required for publication on DoliStore.
+- Publisher: DoliCare - Gerhard Peilstöcker, https://dolicare.de
+- Licence and documentation also in `docs/`.
+
+Upgrading from 1.2.0: replace the module files. Settings, extra fields (Leitweg-ID, electronic address) and generated files are kept. If the module page shows the module as disabled, simply enable it again.
+
 ## 1.2.0 (2026-11-09)
 
 Fixes

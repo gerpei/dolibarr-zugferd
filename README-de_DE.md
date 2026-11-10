@@ -12,7 +12,7 @@ Voraussetzungen: Dolibarr **16 oder neuer**, PHP **7.4 oder neuer** mit den Erwe
 ## Installation
 
 1. **Start → Einstellungen → Module/Anwendungen → Externes Modul bereitstellen/installieren**
-2. Datei `module_zugferd-1.2.0.zip` unverändert hochladen (der Dateiname muss so bleiben).
+2. Datei `module_zugferd-1.2.1.zip` unverändert hochladen (der Dateiname muss so bleiben).
 3. Modul **ZUGFeRD / XRechnung** aktivieren.
 4. Einstellungsseite des Moduls öffnen und die **Prüfung der Stammdaten** kontrollieren.
 

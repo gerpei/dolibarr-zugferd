@@ -12,7 +12,7 @@ Requirements: Dolibarr **16 or newer**, PHP **7.4 or newer** with gd, zlib, mbst
 ## Installation
 
 1. **Home - Setup - Modules/Applications - Deploy/install external app/module**
-2. Upload `module_zugferd-1.2.0.zip` unchanged (keep the file name).
+2. Upload `module_zugferd-1.2.1.zip` unchanged (keep the file name).
 3. Enable the module **ZUGFeRD / XRechnung**.
 4. Open the module setup page and check the **master data check**.
 
