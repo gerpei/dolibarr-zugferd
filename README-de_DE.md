@@ -1,5 +1,7 @@
 # ZUGFeRD / XRechnung für Dolibarr
 
+![ZUGFeRD / XRechnung für Dolibarr](docs/img/cover.png)
+
 Erzeugt aus **validierten Kundenrechnungen**:
 
 - **XRechnung 3.0** – XML-Datei in CII-Syntax (`IN2611-0001_xrechnung.xml`)
@@ -7,7 +9,9 @@ Erzeugt aus **validierten Kundenrechnungen**:
 
 Beide Dateien werden bei den Dokumenten der Rechnung abgelegt. Beim Versand per E-Mail aus Dolibarr wird die E-Rechnung als Anhang vorausgewählt.
 
-Voraussetzungen: Dolibarr **16 oder neuer**, PHP **7.4 oder neuer** mit den Erweiterungen gd, zlib, mbstring, fileinfo und simplexml.
+Voraussetzungen: Dolibarr **20 bis 23** (getestet), PHP **7.4 bis 8.3** mit den Erweiterungen gd, zlib, mbstring, fileinfo und simplexml. Ältere Dolibarr-Versionen ab 16 können funktionieren, sind aber nicht getestet.
+
+Download: [DoliStore](https://www.dolistore.com) (kostenlos, in Prüfung) oder unter [Releases](https://github.com/gerpei/dolibarr-zugferd/releases) in diesem Repository.
 
 ## Installation
 
@@ -86,6 +90,11 @@ Vor dem ersten produktiven Versand empfiehlt sich trotzdem eine Prüfung mit ech
 ## Hinweis für Entwickler
 
 `vendor/` stammt aus `composer install --no-dev` und wurde anschließend mit `build/prepare-vendor.sh` angepasst: Die mitgelieferte FPDF-Klasse heißt `ZugferdVendorFPDF`, weil Dolibarr (TCPDI) bereits eine globale Klasse `FPDF` definiert. Ohne diese Anpassung bricht die ZUGFeRD-Erzeugung mit einem Fatal Error ab. Nach jedem `composer install/update` das Skript erneut ausführen.
+
+## Herausgeber und Support
+
+DoliCare - Gerhard Peilstöcker - https://dolicare.de
+Modul-ID 231240 (Bereich 231240-231249 im Dolibarr-Wiki reserviert).
 
 ## Lizenz
 

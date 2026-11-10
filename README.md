@@ -1,5 +1,7 @@
 # ZUGFeRD / XRechnung for Dolibarr
 
+![ZUGFeRD / XRechnung for Dolibarr](docs/img/cover.png)
+
 Creates from **validated customer invoices**:
 
 - **XRechnung 3.0** - XML file in CII syntax (`IN2611-0001_xrechnung.xml`)
@@ -7,7 +9,9 @@ Creates from **validated customer invoices**:
 
 Both files are stored with the invoice documents. When sending the invoice by e-mail from Dolibarr, the e-invoice is preselected as attachment.
 
-Requirements: Dolibarr **16 or newer**, PHP **7.4 or newer** with gd, zlib, mbstring, fileinfo and simplexml.
+Requirements: Dolibarr **20 to 23** (tested), PHP **7.4 to 8.3** with gd, zlib, mbstring, fileinfo and simplexml. Older Dolibarr versions from 16 on may work but are not tested.
+
+Download: [DoliStore](https://www.dolistore.com) (free, under review) or the [releases](https://github.com/gerpei/dolibarr-zugferd/releases) of this repository.
 
 ## Installation
 
@@ -33,6 +37,11 @@ Tested with Dolibarr 22.0.4 / PHP 8.3: XRechnung XML with KoSIT validator 1.6.3 
 ## Developer note
 
 `vendor/` comes from `composer install --no-dev` followed by `build/prepare-vendor.sh`, which renames the bundled FPDF class to `ZugferdVendorFPDF` because Dolibarr (TCPDI) already declares a global `FPDF` class.
+
+## Publisher and support
+
+DoliCare - Gerhard Peilstöcker, Germany - https://dolicare.de
+Module ID 231240 (range 231240-231249 reserved on the Dolibarr wiki).
 
 ## License
 
